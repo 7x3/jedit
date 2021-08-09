@@ -1,0 +1,5 @@
+Package: JEdit
+Version: 1.2
+Architecture: all
+Maintainer: Joseph Warrell <jjwarrell@gmail.com>
+Description: A very simple ed like text editor written in C++
