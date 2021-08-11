@@ -39,14 +39,23 @@ void printFileToScreen(string del = "\n") {
 
 int typing() {
     string current_line;
-    text_to_write.append("\n");
+    int discard_line = 1;
+    //text_to_write.append("\n");
     while(true) {
         getline(cin, current_line);
         if(current_line == ".") {
             break;
         }
-        text_to_write.append(current_line + "\n");
+        if(discard_line == 1) {
+            current_line = "";
+        } else {
+            text_to_write.append(current_line + "\n");
+        }
+        discard_line++;
     }
+
+    //text_to_write.insert(0, "\n");
+
     return 1;
 }
 
@@ -96,16 +105,19 @@ int main(int argc, char *argv[]) {
         }
     }
     file_contents_original = file_contents;
-
+    cout << file_contents_original;
     loop();
 
     if(file.is_open()) {
         //file.write(file_contents.data(), file_contents.size());
-        file << text_to_write;
+        if(file_contents_original != "") {
+         file << endl;      
+        }
+        file << text_to_write << endl;
     } else {
         cout << "Error writing file" << endl;
     }
-    //free(&file_contents);
+
     file.close();
     return 0;
 }
