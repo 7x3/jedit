@@ -40,7 +40,7 @@ void printFileToScreen(string del = "\n") {
 int typing() {
     string current_line;
     int discard_line = 1;
-    //text_to_write.append("\n");
+
     while(true) {
         getline(cin, current_line);
         if(current_line == ".") {
@@ -49,17 +49,15 @@ int typing() {
         if(discard_line == 1) {
             current_line = "";
         } else {
-            text_to_write.append(current_line + "\n");
+            text_to_write.append(current_line.append("\n"));
         }
         discard_line++;
     }
 
-    //text_to_write.insert(0, "\n");
-
     return 1;
 }
 
-string loop() {
+void loop() {
     string current_command;
     bool continue_program = true;
     while(continue_program) {
@@ -83,13 +81,9 @@ string loop() {
                 break;
         }
     }
-    return "";
 }
 
 int main(int argc, char *argv[]) {
-    //free(&file_contents);
-    ofstream file;
-    ifstream file_read;
 
     if(argv[1] == NULL) {
         cout << "Error: No file given" << endl;
@@ -105,7 +99,7 @@ int main(int argc, char *argv[]) {
         }
     }
     file_contents_original = file_contents;
-    cout << file_contents_original;
+
     loop();
 
     if(file.is_open()) {
@@ -113,7 +107,7 @@ int main(int argc, char *argv[]) {
         if(file_contents_original != "") {
          file << endl;      
         }
-        file << text_to_write << endl;
+        file << text_to_write;
     } else {
         cout << "Error writing file" << endl;
     }
