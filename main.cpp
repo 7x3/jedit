@@ -26,9 +26,7 @@ Commands resolveOption(std::string input) {
 }
 
 void giveHelp() {
-    string useless;
-    printf("Commands:\ni: Insert text into the document\np: Prints the contents of the document including what you have typed\nq: Saves and quits\nh: Shows this help screen\nPress any key to continue");
-    cin >> useless;
+    printf("Commands:\ni: Insert text into the document\np: Prints the contents of the document including what you have typed\nq: Saves and quits\nh: Shows this help screen\n");
 }
 
 void printFileToScreen(string del = "\n") {
@@ -104,7 +102,7 @@ int main(int argc, char *argv[]) {
 
     if(file.is_open()) {
         //file.write(file_contents.data(), file_contents.size());
-        if(file_contents_original != "") {
+        if(file_contents_original != "" && text_to_write == "") {
          file << endl;      
         }
         file << text_to_write;
