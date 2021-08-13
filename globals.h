@@ -12,5 +12,7 @@ string file_contents;
 string file_contents_original;
 string file_contents_appended;
 
+
+
 //Sets the character used to show a prompt
 string prompt_character = ":";

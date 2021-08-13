@@ -6,8 +6,6 @@
 
 using namespace std;
 
-
-
 enum Commands {
         q,
         i,
@@ -37,19 +35,19 @@ void printFileToScreen(string del = "\n") {
 
 int typing() {
     string current_line;
-    int discard_line = 1;
+    bool discard_line = true;
 
     while(true) {
         getline(cin, current_line);
         if(current_line == ".") {
             break;
         }
-        if(discard_line == 1) {
+        if(discard_line == true) {
             current_line = "";
         } else {
             text_to_write.append(current_line.append("\n"));
         }
-        discard_line++;
+        discard_line = false;
     }
 
     return 1;
